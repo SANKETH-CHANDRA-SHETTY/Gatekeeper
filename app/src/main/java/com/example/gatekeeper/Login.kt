@@ -7,6 +7,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.gatekeeper.databinding.ActivityLoginBinding
 import android.content.Intent
+import com.example.gatekeeper.users
+import com.example.gatekeeper.model.User
+import android.widget.Toast
 
 
 class Login : AppCompatActivity() {
@@ -28,6 +31,28 @@ class Login : AppCompatActivity() {
         binding.loginSignUp.setOnClickListener{
             val intent=Intent(this,SignUp::class.java)
             startActivity(intent)
+        }
+
+        binding.loginSubmit.setOnClickListener {
+            val enteredEmailAddress = binding.loginEmailAddress.text.toString()
+            val enteredPassword = binding.loginPassword.text.toString()
+            var loggedUser:User?=null
+            for (user in users) {
+                if(user.emailAddress==enteredEmailAddress){
+                    loggedUser=user
+                    if(user.password==enteredPassword){
+                        Toast.makeText(this, getString(R.string.loggingin), Toast.LENGTH_LONG).show()
+                    }
+                    else{
+                        Toast.makeText(this, getString(R.string.incorrectPassword), Toast.LENGTH_LONG).show()
+                    }
+                    break
+                }
+            }
+            if(loggedUser==null) {
+                Toast.makeText(this, getString(R.string.incorrectemailid), Toast.LENGTH_LONG).show()
+            }
+
         }
 
     }
