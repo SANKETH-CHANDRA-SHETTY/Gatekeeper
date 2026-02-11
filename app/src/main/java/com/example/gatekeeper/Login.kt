@@ -41,7 +41,16 @@ class Login : AppCompatActivity() {
                 if(user.emailAddress==enteredEmailAddress){
                     loggedUser=user
                     if(user.password==enteredPassword){
-                        Toast.makeText(this, getString(R.string.loggingin), Toast.LENGTH_LONG).show()
+                        //Toast.makeText(this, getString(R.string.loggingin), Toast.LENGTH_LONG).show()
+                        if(loggedUser.role=="child"){
+                            val intent= Intent(this,ChildHome::class.java)
+                            startActivity(intent)
+                        }
+                        else if(loggedUser.role=="parent"){
+                            val intent= Intent(this,ParentHome::class.java)
+                            startActivity(intent)
+                        }
+
                     }
                     else{
                         Toast.makeText(this, getString(R.string.incorrectPassword), Toast.LENGTH_LONG).show()
@@ -52,8 +61,6 @@ class Login : AppCompatActivity() {
             if(loggedUser==null) {
                 Toast.makeText(this, getString(R.string.incorrectemailid), Toast.LENGTH_LONG).show()
             }
-
         }
-
     }
 }
