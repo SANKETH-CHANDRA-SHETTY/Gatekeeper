@@ -44,10 +44,12 @@ class Login : AppCompatActivity() {
                         //Toast.makeText(this, getString(R.string.loggingin), Toast.LENGTH_LONG).show()
                         if(loggedUser.role=="child"){
                             val intent= Intent(this,ChildHome::class.java)
+                            intent.putExtra("userId",loggedUser.id)
                             startActivity(intent)
                         }
                         else if(loggedUser.role=="parent"){
                             val intent= Intent(this,ParentHome::class.java)
+                            intent.putExtra("userId",loggedUser.id)
                             startActivity(intent)
                         }
 
