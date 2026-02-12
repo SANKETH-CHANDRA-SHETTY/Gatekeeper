@@ -79,7 +79,8 @@ class SignUp : AppCompatActivity() {
                 emailAddress = enteredEmailAddress,
                 password = enteredPassword,
                 role = selectedRole,
-                supporter = mutableListOf()
+                supporter = mutableListOf(),
+                requested = mutableListOf()
             )
 
             users.add(newUser)
