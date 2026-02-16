@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gatekeeper.databinding.ActivityParentHomeBinding
 import com.example.gatekeeper.model.User
@@ -37,5 +38,15 @@ class ParentHome : AppCompatActivity() {
         }
 
         recyclerView.adapter = ParentNameAdapter(supporterUserList)
+
+        replaceFrameWithFragment(RequestConnection())
+
+    }
+
+    private fun replaceFrameWithFragment(frag:Fragment){
+        val fragmentManager=supportFragmentManager
+        val fragmentTransaction=fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.parentFragmentRequestContainer,frag)
+        fragmentTransaction.commit()
     }
 }

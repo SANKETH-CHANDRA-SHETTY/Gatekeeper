@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gatekeeper.databinding.ActivityChildHomeBinding
 import com.example.gatekeeper.users
 import com.example.gatekeeper.NameAdapter
+import androidx.fragment.app.Fragment
+import com.example.gatekeeper.RequestConnection
+
 
 
 class ChildHome : AppCompatActivity() {
@@ -35,5 +38,15 @@ class ChildHome : AppCompatActivity() {
             supporterNames.add(users.first { it.id == sup }.name)
         }
         recyclerView.adapter = NameAdapter(supporterNames)
+
+        replaceFrameWithFragment(RequestConnection())
+
+    }
+
+    private fun replaceFrameWithFragment(frag:Fragment){
+        val fragmentManager=supportFragmentManager
+        val fragmentTransaction=fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.childFragmentRequestContainer,frag)
+        fragmentTransaction.commit()
     }
 }
