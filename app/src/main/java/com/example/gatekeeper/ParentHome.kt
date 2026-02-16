@@ -7,6 +7,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gatekeeper.databinding.ActivityParentHomeBinding
+import com.example.gatekeeper.model.User
+import com.example.gatekeeper.users
 
 class ParentHome : AppCompatActivity() {
     private lateinit var binding: ActivityParentHomeBinding
@@ -28,10 +30,12 @@ class ParentHome : AppCompatActivity() {
         val supporterList = users.first { it.id == id }.supporter
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        var supporterNames= ArrayList<String>()
+
+        val supporterUserList= mutableListOf<User>()
         for(sup in supporterList){
-            supporterNames.add(users.first { it.id == sup }.name)
+            supporterUserList.add(users.first { it.id == sup })
         }
-        recyclerView.adapter = ParentNameAdapter(supporterNames)
+
+        recyclerView.adapter = ParentNameAdapter(supporterUserList)
     }
 }

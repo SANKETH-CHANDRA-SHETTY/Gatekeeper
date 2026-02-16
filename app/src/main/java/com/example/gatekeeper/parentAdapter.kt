@@ -4,9 +4,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gatekeeper.model.User
+import com.example.gatekeeper.users
 
-
-class ParentNameAdapter(private val nameList: List<String>) :
+class ParentNameAdapter(private val nameList: List<User>) :
     RecyclerView.Adapter<ParentNameAdapter.ParentNameViewHolder>() {
 
     class ParentNameViewHolder(itemView: android.view.View) :
@@ -23,7 +24,7 @@ class ParentNameAdapter(private val nameList: List<String>) :
     }
 
     override fun onBindViewHolder(holder: ParentNameViewHolder, position: Int) {
-        holder.nameButton.text = nameList[position]
+        holder.nameButton.text = nameList[position].name
     }
 
     override fun getItemCount(): Int = nameList.size
