@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.content.Intent
 
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,5 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         var intent=Intent(this,Login::class.java)
         startActivity(intent)
+
+
     }
 }

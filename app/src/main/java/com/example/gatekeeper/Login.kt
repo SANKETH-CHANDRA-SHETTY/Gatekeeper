@@ -11,7 +11,6 @@ import com.example.gatekeeper.users
 import com.example.gatekeeper.model.User
 import android.widget.Toast
 
-
 class Login : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
@@ -28,39 +27,37 @@ class Login : AppCompatActivity() {
             insets
         }
 
-        binding.loginSignUp.setOnClickListener{
-            val intent=Intent(this,SignUp::class.java)
+        binding.loginSignUp.setOnClickListener {
+            val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
         }
 
         binding.loginSubmit.setOnClickListener {
             val enteredEmailAddress = binding.loginEmailAddress.text.toString()
             val enteredPassword = binding.loginPassword.text.toString()
-            var loggedUser:User?=null
+            var loggedUser: User? = null
             for (user in users) {
-                if(user.emailAddress==enteredEmailAddress){
-                    loggedUser=user
-                    if(user.password==enteredPassword){
-                        //Toast.makeText(this, getString(R.string.loggingin), Toast.LENGTH_LONG).show()
-                        if(loggedUser.role=="child"){
-                            val intent= Intent(this,ChildHome::class.java)
-                            intent.putExtra("userId",loggedUser.id)
+                if (user.emailAddress == enteredEmailAddress) {
+                    loggedUser = user
+                    if (user.password == enteredPassword) {
+                        if (loggedUser.role == "child") {
+                            val intent = Intent(this, ChildHome::class.java)
+                            intent.putExtra("userId", loggedUser.id)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(intent)
+                        } else if (loggedUser.role == "parent") {
+                            val intent = Intent(this, ParentHome::class.java)
+                            intent.putExtra("userId", loggedUser.id)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
                         }
-                        else if(loggedUser.role=="parent"){
-                            val intent= Intent(this,ParentHome::class.java)
-                            intent.putExtra("userId",loggedUser.id)
-                            startActivity(intent)
-                        }
-
-                    }
-                    else{
+                    } else {
                         Toast.makeText(this, getString(R.string.incorrectPassword), Toast.LENGTH_LONG).show()
                     }
                     break
                 }
             }
-            if(loggedUser==null) {
+            if (loggedUser == null) {
                 Toast.makeText(this, getString(R.string.incorrectemailid), Toast.LENGTH_LONG).show()
             }
         }

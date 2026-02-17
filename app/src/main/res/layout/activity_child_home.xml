@@ -52,5 +52,12 @@
         tools:layout_editor_absoluteX="0dp"
         android:id="@+id/childFragmentRequestContainer"/>
 
+    <FrameLayout
+        android:id="@+id/childFragmentRequestList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/childFragmentRequestContainer"
+        tools:layout_editor_absoluteX="-16dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

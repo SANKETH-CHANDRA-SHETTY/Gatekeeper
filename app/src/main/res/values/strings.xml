@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Gatekeeper</string>
+    <string name="loginHeading">Login</string>
+    <string name="SignUpHeading">Sign Up</string>
+    <string name="enterEmailAddress">Enter Email Address</string>
+    <string name="enterPassword">Enter Password</string>
+    <string name="enterName">Enter Name</string>
+    <string name="submit">Submit</string>
+    <string name="alreadyHaveAccount">Already have an account? Login</string>
+    <string name="dontHaveAccount">Don\'t have an account? Sign Up</string>
+    <string name="enterPhoneNo">Enter Phone Number</string>
+    <string name="enterOTP">Enter OTP</string>
+    <string name="incorrectPassword">Incorrect Password</string>
+    <string name="incorrectemailid">Incorrect Email Address</string>
+    <string name="loggingin">Logging in...</string>
+    <string name="userExists">User already exists</string>
+    <string name="userAdded">User Registered Successfully</string>
+    <string name="fillAllFields">Please fill all the fields</string>
+    <string name="connectreqhead">Request Connection</string>
+    <string name="enterId">Enter ID</string>
+    <string name="notuser">Entered ID is not a valid user</string>
+    <string name="alreadyRequested">Entered ID has already been requested</string>
+
 </resources>

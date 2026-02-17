@@ -1,4 +1,7 @@
 package com.example.gatekeeper
 
-class SharedUserViewModel {
+import androidx.lifecycle.ViewModel
+
+class SharedUserViewModel: ViewModel() {
+    var currentUserId: String? = null
 }
